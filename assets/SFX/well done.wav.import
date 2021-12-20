@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/well done.wav-1c6d781bfa7f9ef29e400f7f3b3200a9.sample"
+
+[deps]
+
+source_file="res://assets/SFX/well done.wav"
+dest_files=[ "res://.import/well done.wav-1c6d781bfa7f9ef29e400f7f3b3200a9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

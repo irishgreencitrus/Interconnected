@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HeatleyBros - HeatleyBros III - 03 8 Bit Select.mp3-44403114c2d968e4d22632a3416e7f2a.mp3str"
+
+[deps]
+
+source_file="res://assets/music/HeatleyBros - HeatleyBros III - 03 8 Bit Select.mp3"
+dest_files=[ "res://.import/HeatleyBros - HeatleyBros III - 03 8 Bit Select.mp3-44403114c2d968e4d22632a3416e7f2a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

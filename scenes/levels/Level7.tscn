@@ -1,0 +1,119 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/goal/GoalManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/goal/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/zx_spectrum-7.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/LevelScript.gd" type="Script" id=6]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_strength = 0.85
+glow_bloom = 1.0
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+glow_high_quality = true
+
+[sub_resource type="DynamicFont" id=2]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Level Complete"
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 6 )
+goal_manager_path = NodePath("GoalManager")
+player_manager_path = NodePath("Players")
+next_scene = "res://scenes/levels/Level8.tscn"
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 68, 36 )
+z_index = 1
+
+[node name="Player2" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 116, 36 )
+z_index = 1
+player_number = 1
+
+[node name="Player3" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 92, 20 )
+z_index = 1
+player_number = 2
+
+[node name="GoalManager" parent="." instance=ExtResource( 3 )]
+
+[node name="Goal" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 52, 36 )
+
+[node name="Goal2" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 132, 36 )
+goal_number = 1
+
+[node name="Goal3" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 76, 84 )
+goal_number = 2
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 65537, 0, 196608, 65538, 0, 196608, 65539, 0, 196608, 65540, 0, 196608, 65541, 0, 196608, 65542, 0, 196608, 65543, 0, 131072, 65544, 0, 131072, 65545, 0, 131072, 65546, 0, 131072, 65547, 0, 131072, 65548, 0, 131072, 65549, 0, 131072, 65550, 0, 131072, 65551, 0, 131072, 65552, 0, 196608, 65553, 0, 196608, 65554, 0, 196608, 65555, 0, 196608, 65556, 0, 196608, 65557, 0, 196608, 131073, 0, 196608, 131079, 0, 131072, 131093, 0, 196608, 196609, 0, 196608, 196613, 0, 131072, 196614, 0, 131072, 196615, 0, 131072, 196623, 0, 131072, 196624, 0, 131072, 196625, 0, 131072, 196629, 0, 196608, 262145, 0, 196608, 262149, 0, 131072, 262151, 0, 131072, 262159, 0, 131072, 262161, 0, 131072, 262165, 0, 196608, 327681, 0, 196608, 327683, 0, 131072, 327684, 0, 131072, 327685, 0, 131072, 327687, 0, 131072, 327688, 0, 131072, 327689, 0, 131072, 327690, 0, 131072, 327692, 0, 131072, 327693, 0, 131072, 327694, 0, 131072, 327695, 0, 131072, 327697, 0, 131072, 327698, 0, 131072, 327699, 0, 131072, 327701, 0, 196608, 393217, 0, 196608, 393219, 0, 131072, 393223, 0, 131072, 393231, 0, 131072, 393235, 0, 131072, 393237, 0, 196608, 458753, 0, 196608, 458755, 0, 131072, 458759, 0, 131072, 458767, 0, 131072, 458771, 0, 131072, 458773, 0, 196608, 524289, 0, 196608, 524291, 0, 131072, 524307, 0, 131072, 524309, 0, 196608, 589825, 0, 196608, 589827, 0, 131072, 589828, 0, 131072, 589829, 0, 131072, 589830, 0, 131072, 589831, 0, 131072, 589832, 0, 131072, 589833, 0, 131072, 589834, 0, 131072, 589835, 0, 131072, 589836, 0, 131072, 589837, 0, 131072, 589838, 0, 131072, 589839, 0, 131072, 589840, 0, 131072, 589841, 0, 131072, 589842, 0, 131072, 589843, 0, 131072, 589845, 0, 196608, 655361, 0, 196608, 655381, 0, 196608, 720897, 0, 196608, 720898, 0, 196608, 720899, 0, 196608, 720900, 0, 196608, 720901, 0, 196608, 720902, 0, 196608, 720903, 0, 196608, 720904, 0, 196608, 720905, 0, 196608, 720906, 0, 196608, 720907, 0, 196608, 720908, 0, 196608, 720909, 0, 196608, 720910, 0, 196608, 720911, 0, 196608, 720912, 0, 196608, 720913, 0, 196608, 720914, 0, 196608, 720915, 0, 196608, 720916, 0, 196608, 720917, 0, 196608 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 83.0
+margin_right = 192.0
+margin_bottom = 100.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center][rainbow freq=0.6][tornado radius=2 freq=2]CONGRATULATIONS"
+visible_characters = 0
+percent_visible = 0.0
+text = "CONGRATULATIONS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Level Complete" = SubResource( 3 )
+anims/RESET = SubResource( 4 )

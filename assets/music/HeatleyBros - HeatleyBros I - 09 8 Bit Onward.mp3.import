@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HeatleyBros - HeatleyBros I - 09 8 Bit Onward.mp3-f21b76ddb6fc5faded339d6d2c5374d7.mp3str"
+
+[deps]
+
+source_file="res://assets/music/HeatleyBros - HeatleyBros I - 09 8 Bit Onward.mp3"
+dest_files=[ "res://.import/HeatleyBros - HeatleyBros I - 09 8 Bit Onward.mp3-f21b76ddb6fc5faded339d6d2c5374d7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

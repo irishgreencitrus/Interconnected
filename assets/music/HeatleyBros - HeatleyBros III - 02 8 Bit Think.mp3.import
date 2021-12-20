@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HeatleyBros - HeatleyBros III - 02 8 Bit Think.mp3-19a7cd3a42d30a7ea1b3a3673692f3c7.mp3str"
+
+[deps]
+
+source_file="res://assets/music/HeatleyBros - HeatleyBros III - 02 8 Bit Think.mp3"
+dest_files=[ "res://.import/HeatleyBros - HeatleyBros III - 02 8 Bit Think.mp3-19a7cd3a42d30a7ea1b3a3673692f3c7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
