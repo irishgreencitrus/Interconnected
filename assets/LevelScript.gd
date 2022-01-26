@@ -8,9 +8,18 @@ onready var player_manager = get_node(player_manager_path)
 onready var goal_manager = get_node(goal_manager_path)
 
 func _ready():
+	PauseMenu.get_node("PauseMenu").allow_pausing = true
 	goal_manager.connect("room_completed",self,"_on_level_complete")
 	assert(next_scene != "")
-
+func _physics_process(delta):
+	if get_tree().paused: return
+	for player in player_manager.get_children():
+		if !player.allow_move:
+			return
+	for dir in Global.INPUTS.keys():
+		if Input.is_action_just_pressed(dir):
+			for player in player_manager.get_children():
+				player.move_player(dir)
 func _on_level_complete():
 	for player in player_manager.get_children():
 		set_process_input(false)

@@ -6,14 +6,19 @@ var musics = [
 	"res://assets/music/HeatleyBros - HeatleyBros III - 03 8 Bit Select.mp3",
 ]
 const well_done_noise = preload("res://assets/SFX/well done.wav")
-
+const move_noise = preload("res://assets/SFX/move.wav")
 func start_new_music():
 	$MusicPlayer.stream = load(musics[randi() % musics.size()])
 	$MusicPlayer.play()
 	
 func play_completed_sound():
+	#if !$SFXPlayer.playing:
 	$SFXPlayer.stream = well_done_noise
 	$SFXPlayer.play()
+func play_move_sound():
+	if !$SFXPlayer.playing:
+		$SFXPlayer.stream = move_noise
+		$SFXPlayer.play()
 func _ready():
 	start_new_music()
 	
