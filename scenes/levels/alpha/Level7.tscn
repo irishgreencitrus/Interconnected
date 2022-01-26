@@ -1,0 +1,161 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/goal/GoalManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/goal/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/zx_spectrum-7.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/LevelScript.gd" type="Script" id=6]
+[ext_resource path="res://scenes/gate/Gate.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=2]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Level Complete"
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 6 )
+goal_manager_path = NodePath("GoalManager")
+player_manager_path = NodePath("Players")
+next_scene = "res://scenes/levels/alpha/Level8.tscn"
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 92, 20 )
+z_index = 1
+player_number = 2
+
+[node name="Player2" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 100, 20 )
+z_index = 1
+player_number = 2
+
+[node name="Player3" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 92, 92 )
+z_index = 1
+player_number = 2
+
+[node name="Player4" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 100, 92 )
+z_index = 1
+player_number = 2
+
+[node name="GoalManager" parent="." instance=ExtResource( 3 )]
+
+[node name="Goal1" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 172, 44 )
+goal_number = 2
+
+[node name="Goal2" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 172, 60 )
+goal_number = 2
+
+[node name="Goal3" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 20, 44 )
+goal_number = 2
+
+[node name="Goal4" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 20, 60 )
+goal_number = 2
+
+[node name="Gates" type="Node" parent="."]
+
+[node name="Gate1" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 92, 28 )
+gate_number = 2
+
+[node name="Gate2" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 100, 36 )
+gate_number = 2
+
+[node name="Gate3" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 108, 44 )
+gate_number = 2
+
+[node name="Gate4" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 84, 44 )
+gate_number = 2
+
+[node name="Gate5" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 92, 52 )
+gate_number = 2
+
+[node name="Gate6" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 100, 60 )
+gate_number = 2
+
+[node name="Gate7" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 108, 68 )
+gate_number = 2
+
+[node name="Gate8" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 84, 68 )
+gate_number = 2
+
+[node name="Gate9" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 92, 76 )
+gate_number = 2
+
+[node name="Gate10" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 100, 84 )
+gate_number = 2
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 65537, 0, 196608, 65538, 0, 196608, 65539, 0, 196608, 65540, 0, 196608, 65541, 0, 196608, 65542, 0, 196608, 65543, 0, 196608, 65544, 0, 196608, 65545, 0, 196608, 65546, 0, 196608, 65547, 0, 131072, 65548, 0, 131072, 65549, 0, 196608, 65550, 0, 196608, 65551, 0, 196608, 65552, 0, 196608, 65553, 0, 196608, 65554, 0, 196608, 65555, 0, 196608, 65556, 0, 196608, 65557, 0, 196608, 65558, 0, 196608, 131073, 0, 196608, 131082, 0, 131072, 131085, 0, 131072, 131094, 0, 196608, 196609, 0, 196608, 196630, 0, 196608, 262145, 0, 196608, 262148, 0, 327680, 262163, 0, 327680, 262166, 0, 196608, 327681, 0, 196608, 327683, 0, 327680, 327700, 0, 327680, 327702, 0, 196608, 393217, 0, 196608, 393219, 0, 327680, 393221, 0, 327680, 393222, 0, 327680, 393223, 0, 327680, 393232, 0, 327680, 393233, 0, 327680, 393234, 0, 327680, 393236, 0, 327680, 393238, 0, 196608, 458753, 0, 196608, 458755, 0, 327680, 458772, 0, 327680, 458774, 0, 196608, 524289, 0, 196608, 524292, 0, 327680, 524307, 0, 327680, 524310, 0, 196608, 589825, 0, 196608, 589846, 0, 196608, 655361, 0, 196608, 655382, 0, 196608, 720897, 0, 196608, 720906, 0, 131072, 720909, 0, 131072, 720918, 0, 196608, 786433, 0, 196608, 786434, 0, 196608, 786435, 0, 196608, 786436, 0, 196608, 786437, 0, 196608, 786438, 0, 196608, 786439, 0, 196608, 786440, 0, 196608, 786441, 0, 196608, 786442, 0, 196608, 786443, 0, 131072, 786444, 0, 131072, 786445, 0, 196608, 786446, 0, 196608, 786447, 0, 196608, 786448, 0, 196608, 786449, 0, 196608, 786450, 0, 196608, 786451, 0, 196608, 786452, 0, 196608, 786453, 0, 196608, 786454, 0, 196608 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 99.0
+margin_right = 192.0
+margin_bottom = 119.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center][rainbow freq=0.6][tornado radius=1 freq=2]CONGRATULATIONS"
+visible_characters = 0
+percent_visible = 0.0
+text = "CONGRATULATIONS"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Level Complete" = SubResource( 3 )
+anims/RESET = SubResource( 4 )

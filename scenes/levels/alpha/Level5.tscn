@@ -1,0 +1,299 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/goal/GoalManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/goal/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/zx_spectrum-7.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/LevelScript.gd" type="Script" id=6]
+[ext_resource path="res://scenes/gate/Gate.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=2]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Level Complete"
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 6 )
+goal_manager_path = NodePath("GoalManager")
+player_manager_path = NodePath("Players")
+next_scene = "res://scenes/levels/alpha/Level6.tscn"
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 100, 52 )
+z_index = 1
+
+[node name="Player2" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 92, 60 )
+z_index = 1
+player_number = 3
+
+[node name="Player3" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 100, 60 )
+z_index = 1
+player_number = 2
+
+[node name="Player4" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 92, 52 )
+z_index = 1
+player_number = 1
+
+[node name="GoalManager" parent="." instance=ExtResource( 3 )]
+
+[node name="Goal2" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 20, 52 )
+
+[node name="Goal6" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 20, 60 )
+goal_number = 1
+
+[node name="Goal4" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 172, 52 )
+goal_number = 2
+
+[node name="Goal7" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 172, 60 )
+goal_number = 3
+
+[node name="Gates" type="Node" parent="."]
+
+[node name="Gate" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 36, 28 )
+
+[node name="Gate8" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 28, 52 )
+
+[node name="Gate9" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 28, 44 )
+
+[node name="Gate10" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 28, 36 )
+
+[node name="Gate11" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 28, 28 )
+
+[node name="Gate12" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 44, 28 )
+
+[node name="Gate13" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 52, 28 )
+
+[node name="Gate14" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 60, 28 )
+
+[node name="Gate15" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 68, 28 )
+
+[node name="Gate16" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 76, 28 )
+
+[node name="Gate17" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 84, 28 )
+
+[node name="Gate18" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 92, 28 )
+
+[node name="Gate2" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 164, 28 )
+gate_number = 2
+
+[node name="Gate3" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 164, 36 )
+gate_number = 2
+
+[node name="Gate4" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 164, 44 )
+gate_number = 2
+
+[node name="Gate5" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 164, 52 )
+gate_number = 2
+
+[node name="Gate6" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 148, 28 )
+gate_number = 2
+
+[node name="Gate7" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 156, 28 )
+gate_number = 2
+
+[node name="Gate19" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 140, 28 )
+gate_number = 2
+
+[node name="Gate20" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 124, 28 )
+gate_number = 2
+
+[node name="Gate21" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 132, 28 )
+gate_number = 2
+
+[node name="Gate22" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 116, 28 )
+gate_number = 2
+
+[node name="Gate23" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 100, 28 )
+gate_number = 2
+
+[node name="Gate24" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 108, 28 )
+gate_number = 2
+
+[node name="Gate25" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 36, 84 )
+gate_number = 1
+
+[node name="Gate26" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 28, 84 )
+gate_number = 1
+
+[node name="Gate46" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 28, 76 )
+gate_number = 1
+
+[node name="Gate47" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 28, 68 )
+gate_number = 1
+
+[node name="Gate48" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 28, 60 )
+gate_number = 1
+
+[node name="Gate27" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 44, 84 )
+gate_number = 1
+
+[node name="Gate28" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 52, 84 )
+gate_number = 1
+
+[node name="Gate29" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 60, 84 )
+gate_number = 1
+
+[node name="Gate30" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 68, 84 )
+gate_number = 1
+
+[node name="Gate31" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 76, 84 )
+gate_number = 1
+
+[node name="Gate32" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 84, 84 )
+gate_number = 1
+
+[node name="Gate33" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 92, 84 )
+gate_number = 1
+
+[node name="Gate34" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 164, 84 )
+gate_number = 3
+
+[node name="Gate43" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 164, 76 )
+gate_number = 3
+
+[node name="Gate44" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 164, 68 )
+gate_number = 3
+
+[node name="Gate45" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 164, 60 )
+gate_number = 3
+
+[node name="Gate35" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 148, 84 )
+gate_number = 3
+
+[node name="Gate36" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 156, 84 )
+gate_number = 3
+
+[node name="Gate37" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 140, 84 )
+gate_number = 3
+
+[node name="Gate38" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 124, 84 )
+gate_number = 3
+
+[node name="Gate39" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 132, 84 )
+gate_number = 3
+
+[node name="Gate40" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 116, 84 )
+gate_number = 3
+
+[node name="Gate41" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 100, 84 )
+gate_number = 3
+
+[node name="Gate42" parent="Gates" instance=ExtResource( 7 )]
+position = Vector2( 108, 84 )
+gate_number = 3
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 131072, 65549, 0, 131072, 65550, 0, 131072, 65551, 0, 131072, 65552, 0, 131072, 65553, 0, 131072, 65554, 0, 131072, 65555, 0, 131072, 65556, 0, 131072, 65557, 0, 131072, 65558, 0, 131072, 131073, 0, 0, 131094, 0, 131072, 196609, 0, 0, 196630, 0, 131072, 262145, 0, 0, 262156, 0, 131072, 262166, 0, 131072, 327681, 0, 0, 327692, 0, 131072, 327702, 0, 131072, 393217, 0, 0, 393238, 0, 131072, 458753, 0, 65536, 458774, 0, 196608, 524289, 0, 65536, 524299, 0, 65536, 524310, 0, 196608, 589825, 0, 65536, 589835, 0, 65536, 589846, 0, 196608, 655361, 0, 65536, 655382, 0, 196608, 720897, 0, 65536, 720918, 0, 196608, 786433, 0, 65536, 786434, 0, 65536, 786435, 0, 65536, 786436, 0, 65536, 786437, 0, 65536, 786438, 0, 65536, 786439, 0, 65536, 786440, 0, 65536, 786441, 0, 65536, 786442, 0, 65536, 786443, 0, 65536, 786444, 0, 196608, 786445, 0, 196608, 786446, 0, 196608, 786447, 0, 196608, 786448, 0, 196608, 786449, 0, 196608, 786450, 0, 196608, 786451, 0, 196608, 786452, 0, 196608, 786453, 0, 196608, 786454, 0, 196608 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 99.0
+margin_right = 192.0
+margin_bottom = 119.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center][rainbow freq=0.6][tornado radius=1 freq=2]CONGRATULATIONS"
+visible_characters = 0
+percent_visible = 0.0
+text = "CONGRATULATIONS"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Level Complete" = SubResource( 3 )
+anims/RESET = SubResource( 4 )
