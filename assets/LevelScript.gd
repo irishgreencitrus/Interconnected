@@ -14,8 +14,10 @@ func _ready():
 func _physics_process(delta):
 	if get_tree().paused: return
 	for player in player_manager.get_children():
-		if !player.allow_move:
+		if not player.allow_move:
 			return
+			
+			
 	for dir in Global.INPUTS.keys():
 		if Input.is_action_just_pressed(dir):
 			for player in player_manager.get_children():
