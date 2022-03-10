@@ -46,7 +46,7 @@ tracks/0/keys = {
 script = ExtResource( 6 )
 goal_manager_path = NodePath("GoalManager")
 player_manager_path = NodePath("Players")
-next_scene = "res://scenes/EndOfGame.tscn"
+next_scene = "res://scenes/levels/beta/Level1.tscn"
 
 [node name="Players" type="Node" parent="."]
 

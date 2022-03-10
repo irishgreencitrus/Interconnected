@@ -4,6 +4,7 @@ const WORLD_LAYER  = 1 << 0
 const PLAYER_LAYER = 1 << 1
 const GOAL_LAYER = 1 << 2
 const GATE_LAYER   = 1 << 3
+const DOOR_LAYER  = 1 << 4
 
 var allow_move = true
 var velocity := Vector2.ZERO
@@ -25,7 +26,20 @@ func is_gate_not_blocking(dir: String) -> bool:
 	)
 	if len(gate_detection) == 0: return true
 	return gate_detection[0].collider.gate_number != player_number
-
+	
+func is_door_not_blocking(dir: String) -> bool:
+	var state := get_world_2d().get_direct_space_state()
+	var door_detection = state.intersect_point(
+		global_position + Global.INPUTS[dir] * Global.TILE_SIZE,
+		1,
+		[],
+		DOOR_LAYER,
+		true,
+		true
+	)
+	if len(door_detection) == 0: return true
+	return door_detection[0].collider.door_number == player_number
+	
 func can_move(dir) -> bool:
 	var physics_state := get_world_2d().get_direct_space_state()
 	var brick_detection = physics_state.intersect_point(
@@ -37,6 +51,7 @@ func can_move(dir) -> bool:
 			true
 	)
 	if !is_gate_not_blocking(dir): return false
+	if !is_door_not_blocking(dir): return false
 	if len(brick_detection) > 0:
 		return false
 	else:
@@ -52,6 +67,7 @@ func can_move(dir) -> bool:
 			return player_detection[0].collider.can_move(dir)
 		else:
 			return true
+			
 func _ready():
 	sprite.region_rect.position.y = 8*player_number
 	if !Engine.editor_hint:
@@ -77,23 +93,12 @@ func move_player(dir):
 	)
 	if len(world_detection) == 0:
 		if len(player_detection) == 0:
-			if is_gate_not_blocking(dir):
+			if is_gate_not_blocking(dir) and is_door_not_blocking(dir):
 					move_tween(dir)
 		else:
 			if can_move(dir):
 				move_tween(dir)
-					
-					
-					
-#	if len(world_detection) == 0:
-#		if len(player_detection) == 0:
-#			if is_gate_not_blocking(dir):
-#				if can_move(dir):
-#					move_tween(dir)
-#			else:
-#				if is_gate_not_blocking(dir):
-#					move_tween(dir)
-				
+
 func wait_move():
 	allow_move = false
 	yield(get_tree().create_timer(1.0/TWEEN_SPEED),"timeout")
@@ -101,12 +106,10 @@ func wait_move():
 
 func move_tween(dir):
 	$"/root/MusicManager".play_move_sound()
-	#$CollisionShape2D.disabled = true
 	allow_move = false
 	tween.interpolate_property(self, "position",
 		position, position + Global.INPUTS[dir] * Global.TILE_SIZE,
 		1.0/TWEEN_SPEED, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	tween.start()
 func _on_tween_complete():
-	#$CollisionShape2D.disabled = false
 	allow_move = true

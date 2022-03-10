@@ -56,8 +56,11 @@ anchor_bottom = 0.5
 margin_left = -88.0
 margin_top = -13.0
 margin_right = 88.0
-margin_bottom = 1.0
+margin_bottom = 52.0
 custom_fonts/font = SubResource( 2 )
-text = "press ESC to resume"
+text = "press ESC/P to resume
+press R to restart
+press M for the Main Menu"
 align = 1
 valign = 1
+autowrap = true
