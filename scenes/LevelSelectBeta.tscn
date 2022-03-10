@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/LevelSelect.gd" type="Script" id=1]
+[ext_resource path="res://GameTheme.theme" type="Theme" id=2]
+[ext_resource path="res://assets/zx_spectrum-7.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 3 )
+
+[node name="LevelSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+level_location = "res://scenes/levels/beta"
+grid_path = NodePath("GridContainer")
+before_scene = "res://scenes/LevelSelectAlpha.tscn"
+
+[node name="BeforeButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -17.0
+margin_right = 28.0
+margin_bottom = -6.0
+theme = ExtResource( 2 )
+text = "<"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AfterButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -28.0
+margin_top = -17.0
+margin_right = -10.0
+margin_bottom = -6.0
+theme = ExtResource( 2 )
+text = ">"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -49.5
+margin_top = -20.0
+margin_right = 49.5
+margin_bottom = 36.0
+theme = ExtResource( 2 )
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+margin_top = -10.0
+margin_bottom = 41.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[rainbow freq=0.3 sat=1][tornado radius=6 freq=1.6][center]BETA PACK"
+text = "BETA PACK"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GameTheme.theme" type="Theme" id=1]
+[ext_resource path="res://assets/zx_spectrum-7.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/Options.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="OptionMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.0
+margin_top = -39.0
+margin_right = 55.0
+margin_bottom = 48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScreenFX" type="CheckBox" parent="VBoxContainer"]
+margin_right = 110.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 1 )
+text = "SCREEN FX"
+
+[node name="Music" type="CheckBox" parent="VBoxContainer"]
+margin_top = 20.0
+margin_right = 110.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 1 )
+text = "MUSIC"
+
+[node name="SFX" type="CheckBox" parent="VBoxContainer"]
+margin_top = 40.0
+margin_right = 110.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 1 )
+text = "SFX"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 60.0
+margin_right = 110.0
+margin_bottom = 70.0
+custom_constants/separation = 10
+custom_styles/separator = SubResource( 2 )
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 74.0
+margin_right = 110.0
+margin_bottom = 87.0
+size_flags_vertical = 3
+text = "MAIN MENU"
+
+[connection signal="toggled" from="VBoxContainer/ScreenFX" to="." method="_on_ScreenFX_toggled"]
+[connection signal="toggled" from="VBoxContainer/Music" to="." method="_on_Music_toggled"]
+[connection signal="toggled" from="VBoxContainer/SFX" to="." method="_on_SFX_toggled"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]

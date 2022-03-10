@@ -1,0 +1,166 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/goal/GoalManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/goal/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/zx_spectrum-7.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/LevelScript.gd" type="Script" id=6]
+[ext_resource path="res://scenes/gate/Gate.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/door/Door.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Level Complete"
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 6 )
+goal_manager_path = NodePath("GoalManager")
+player_manager_path = NodePath("Players")
+next_scene = "res://scenes/levels/beta/Level3.tscn"
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 84, 44 )
+z_index = 1
+
+[node name="Player3" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 28, 52 )
+z_index = 1
+
+[node name="Player2" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 156, 52 )
+z_index = 1
+player_number = 1
+
+[node name="Player4" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 108, 68 )
+z_index = 1
+player_number = 1
+
+[node name="GoalManager" parent="." instance=ExtResource( 3 )]
+
+[node name="Goal" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 156, 36 )
+
+[node name="Goal4" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 156, 76 )
+
+[node name="Goal2" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 36, 36 )
+goal_number = 1
+
+[node name="Goal3" parent="GoalManager" instance=ExtResource( 4 )]
+position = Vector2( 36, 76 )
+goal_number = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 65536, 65544, 0, 65536, 65545, 0, 65536, 65546, 0, 65536, 65547, 0, 65536, 65548, 0, 65536, 65549, 0, 65536, 65550, 0, 65536, 65551, 0, 65536, 65552, 0, 65536, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65557, 0, 0, 65558, 0, 0, 131073, 0, 0, 131094, 0, 0, 196609, 0, 0, 196615, 0, 65536, 196624, 0, 65536, 196630, 0, 0, 262145, 0, 0, 262151, 0, 65536, 262152, 0, 65536, 262159, 0, 65536, 262160, 0, 65536, 262166, 0, 0, 327681, 0, 0, 327687, 0, 65536, 327689, 0, 65536, 327694, 0, 65536, 327696, 0, 65536, 327702, 0, 0, 393217, 0, 0, 393218, 0, 0, 393226, 0, 65536, 393229, 0, 65536, 393237, 0, 0, 393238, 0, 0, 458753, 0, 0, 458754, 0, 0, 458762, 0, 65536, 458765, 0, 65536, 458773, 0, 0, 458774, 0, 0, 524289, 0, 0, 524295, 0, 65536, 524297, 0, 65536, 524302, 0, 65536, 524304, 0, 65536, 524310, 0, 0, 589825, 0, 0, 589831, 0, 65536, 589832, 0, 65536, 589839, 0, 65536, 589840, 0, 65536, 589846, 0, 0, 655361, 0, 0, 655367, 0, 65536, 655376, 0, 65536, 655382, 0, 0, 720897, 0, 0, 720918, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 65536, 786440, 0, 65536, 786441, 0, 65536, 786442, 0, 65536, 786443, 0, 65536, 786444, 0, 65536, 786445, 0, 65536, 786446, 0, 65536, 786447, 0, 65536, 786448, 0, 65536, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 103.0
+margin_right = 192.0
+margin_bottom = 117.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center][rainbow freq=0.6][tornado radius=1 freq=2]CONGRATULATIONS"
+visible_characters = 0
+percent_visible = 0.0
+text = "CONGRATULATIONS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Level Complete" = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Gates" type="Node" parent="Obstacles"]
+
+[node name="Gate" parent="Obstacles/Gates" instance=ExtResource( 7 )]
+position = Vector2( 92, 60 )
+gate_number = 3
+
+[node name="Gate2" parent="Obstacles/Gates" instance=ExtResource( 7 )]
+position = Vector2( 100, 60 )
+gate_number = 3
+
+[node name="Gate3" parent="Obstacles/Gates" instance=ExtResource( 7 )]
+position = Vector2( 100, 52 )
+gate_number = 3
+
+[node name="Gate4" parent="Obstacles/Gates" instance=ExtResource( 7 )]
+position = Vector2( 92, 52 )
+gate_number = 3
+
+[node name="Gate7" parent="Obstacles/Gates" instance=ExtResource( 7 )]
+position = Vector2( 132, 60 )
+gate_number = 1
+
+[node name="Gate8" parent="Obstacles/Gates" instance=ExtResource( 7 )]
+position = Vector2( 132, 52 )
+gate_number = 1
+
+[node name="Doors" type="Node" parent="Obstacles"]
+
+[node name="Door" parent="Obstacles/Doors" instance=ExtResource( 8 )]
+position = Vector2( 60, 92 )
+door_number = 1
+
+[node name="Door5" parent="Obstacles/Doors" instance=ExtResource( 8 )]
+position = Vector2( 60, 60 )
+door_number = 1
+
+[node name="Door6" parent="Obstacles/Doors" instance=ExtResource( 8 )]
+position = Vector2( 60, 52 )
+door_number = 1
+
+[node name="Door2" parent="Obstacles/Doors" instance=ExtResource( 8 )]
+position = Vector2( 132, 21 )
+door_number = 1
+
+[node name="Door3" parent="Obstacles/Doors" instance=ExtResource( 8 )]
+position = Vector2( 132, 92 )
+
+[node name="Door4" parent="Obstacles/Doors" instance=ExtResource( 8 )]
+position = Vector2( 60, 20 )
